@@ -15,6 +15,15 @@ Feature: Usage
     Given I successfully run `middleman init my-site`
     And I cd to "my-site"
 
+    # images for gallery
+    And I prepare following files:
+      | source/gallery/cards/one/01.png |
+      | source/gallery/cards/one/02.png |
+      | source/gallery/cards/two/01.png |
+      | source/gallery/cards/two/02.png |
+      | source/gallery/other/01.png |
+      | source/gallery/other/02.png |
+
     When I append to "Gemfile" with:
       """
       gem 'middleman-galley'
@@ -29,8 +38,6 @@ Feature: Usage
 
     Then the output should not contain "Unknown Extension"
     And the following files should exist:
-      | build/index.html |
-
       | build/gallery/index.html |
 
       | build/gallery/cards/index.html |
