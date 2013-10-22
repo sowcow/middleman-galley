@@ -30,3 +30,17 @@ Feature: Usage
     Then the output should not contain "Unknown Extension"
     And the following files should exist:
       | build/index.html |
+
+      | build/gallery/index.html |
+
+      | build/gallery/cards/index.html |
+      | build/gallery/cards/one/index.html |
+      | build/gallery/cards/one/01.png |
+      | build/gallery/cards/one/02.png |
+
+      | build/gallery/cards/two/index.html |
+      | build/gallery/cards/two/01.png |
+
+      | build/gallery/other/index.html |
+      | build/gallery/other/01.png |
+      | build/gallery/other/02.png |
