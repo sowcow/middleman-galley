@@ -26,15 +26,18 @@ Feature: Usage
 
     When I append to "Gemfile" with:
       """
+
       gem 'middleman-galley'
       """
     And I successfully run `bundle`
 
     When I append to "config.rb" with:
       """
+
       activate :galley
       """
-    And I successfully run `middleman build`
+    # verbose option is optional
+    And I successfully run `middleman build --verbose`
 
     Then the output should not contain "Unknown Extension"
     And the following files should exist:
