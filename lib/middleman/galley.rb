@@ -22,7 +22,7 @@ module Middleman
       def manipulate_resource_list resources
         res = Resources.new resources, options.template
         missing.each { |dir|
-          res.prepare_page dir + '/index.html'
+          res.prepare_page dir + 'index.html'
         }
         res.all
       end
@@ -36,7 +36,6 @@ module Middleman
           x.children.any? { |x|
             x.to_s =~ /\/index(\.[^\/]+)?$/ }
         }.map { |x| x.relative_path_from src }
-         .map &:to_s
       end
     end
 
@@ -50,7 +49,7 @@ module Middleman
       end
 
       def prepare_page path
-        res = new_res path
+        res = new_res path.to_s
         all << res
       end
 
