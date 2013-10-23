@@ -1,5 +1,7 @@
 # Middleman::Galley
 
+[![Build Status](https://travis-ci.org/sowcow/middleman-galley.png?branch=master)](https://travis-ci.org/sowcow/middleman-galley)
+
 TODO: Write a gem description
 
 ## Installation
@@ -18,7 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. https://github.com/sowcow/middleman-galley/blob/master/features/usage.feature
+2. https://github.com/sowcow/middleman-galley/issues/new
 
 ## Contributing
 
