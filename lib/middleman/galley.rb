@@ -1,8 +1,7 @@
 require 'middleman/galley/version'
 require 'middleman/galley/gem_stuff'
-require 'middleman/galley/resources'
 require 'middleman' # kinda required...
-require 'delegate'
+require 'fileutils'
 
 
 module Middleman
@@ -14,19 +13,18 @@ module Middleman
       self.option :at, 'gallery',
         'gallery directory'
 
-      self.option :template, here('templates/page.html'),
+      template = here('templates/page.erb')
+
+      self.option :template, template,
         'template for missing pages'
 
       def initialize app, options_hash={}, &block
         super
-      end
 
-      def manipulate_resource_list resources
-        res = Resources.new resources, options.template
         missing.each { |dir|
-          res.prepare_page dir + 'index.html'
+          dest = dir + 'index.erb'
+          FileUtils.cp options.template, dest.to_s
         }
-        res.all
       end
 
       private
@@ -38,7 +36,7 @@ module Middleman
         missing = dirs.reject { |x|
           x.children.any? { |x|
             x.to_s =~ /\/index(\.[^\/]+)?$/ }
-        }.map { |x| x.relative_path_from src }
+        }
       end
     end
   end

@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
 
   spec.add_development_dependency 'aruba'
+  spec.add_development_dependency 'nokogiri'
   spec.add_development_dependency 'guard-cucumber'
   spec.add_runtime_dependency 'middleman'
 end

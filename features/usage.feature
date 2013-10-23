@@ -54,3 +54,7 @@ Feature: Usage
       | build/gallery/other/index.html |
       | build/gallery/other/01.png |
       | build/gallery/other/02.png |
+
+    And the file "build/gallery/index.html" has links to:
+      | cards |
+      | other |

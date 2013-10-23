@@ -5,3 +5,15 @@ Given 'I prepare following files:' do |table|
     step "an empty file named \"#{file}\""
   }
 end
+
+And /^the file "(.*?)" has links to:$/ do |file, table|
+  links = table.raw.map &:first
+
+  #require 'nokogiri'
+  #doc = in_current_dir { Nokogiri.HTML File.read file }
+  #doc.css('a').map { |a| a[:href] }.should == files
+  links.each { |link|
+    text = 'hello'
+    step %'the file "#{file}" should contain "#{text}"'
+  }
+end
