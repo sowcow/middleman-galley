@@ -19,8 +19,8 @@ Feature: Usage
     And I prepare following files:
       | source/gallery/cards/one/01.png |
       | source/gallery/cards/one/02.png |
-      | source/gallery/cards/two/01.png |
-      | source/gallery/cards/two/02.png |
+      | source/gallery/cards/two/a1.png |
+      | source/gallery/cards/two/a2.png |
       | source/gallery/other/01.png |
       | source/gallery/other/02.png |
 
@@ -55,7 +55,8 @@ Feature: Usage
       | build/gallery/cards/one/02.png |
 
       | build/gallery/cards/two/index.html |
-      | build/gallery/cards/two/01.png |
+      | build/gallery/cards/two/a1.png |
+      | build/gallery/cards/two/a1.png |
 
       | build/gallery/other/index.html |
       | build/gallery/other/01.png |
@@ -79,9 +80,10 @@ Feature: Usage
       | 01.png |
       | 02.png |
     And the file "build/gallery/cards/two/index.html" has images:
-      | 01.png |
+      | a1.png |
+      | a2.png |
     And the file "build/gallery/other/index.html" has images:
       | 01.png |
       | 02.png |
-    And the file "build/gallery/index.html" has no links
-    And the file "build/gallery/cards/index.html" has no links
+    And the file "build/gallery/index.html" has no images
+    And the file "build/gallery/cards/index.html" has no images

@@ -8,20 +8,39 @@ module Middleman
       end
       attr_reader :a
 
+      # to extract as a partial?...
       def nested
         a.current_page.children.select { |x| nested? x }
          .map { |x| link x }
          .join
       end
 
+      # to extract as a partial?...
+      def images
+        a.current_page.children.select { |x| image? x }
+         .sort_by { |x| x.url }
+         .map { |x| image x }
+         .join
+      end
+
       private
-      IMG = /\.(png|jpg|jpeg|gif|svg|bmp)&/
+      IMG = /\.(png|jpg|jpeg|gif|svg|bmp)$/
 
       def image? res
         res.source_file =~ IMG
       end
       def nested? res
         res.path =~ /\/index\.html$/
+      end
+
+      def image res
+        #return nil unless image? res #+optional compact ?
+        #raise [a.current_page.url, res.url].inspect
+        #raise [a.current_page.url, res.url,
+        #       relative(res.url),
+        #       a.image_tag(relative res.url) ].inspect
+        #a.image_tag relative(res.url)
+        '<img src="%s" />' % relative(res.url)
       end
 
       def link res
