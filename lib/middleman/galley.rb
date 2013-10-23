@@ -4,6 +4,7 @@ require 'middleman/galley/resources'
 require 'middleman' # kinda required...
 require 'delegate'
 
+
 module Middleman
   module Galley
 
