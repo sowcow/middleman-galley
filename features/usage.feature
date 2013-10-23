@@ -34,12 +34,18 @@ Feature: Usage
     When I append to "config.rb" with:
       """
 
+      # by default uses `gallery` dir inside `source` dir
       activate :galley
+
+      # made with relative paths in mind anyway
+      # activate :directory_indexes
       """
     # verbose option is optional
     And I successfully run `middleman build --verbose`
 
     Then the output should not contain "Unknown Extension"
+
+    # pages
     And the following files should exist:
       | build/gallery/index.html |
 
@@ -55,6 +61,27 @@ Feature: Usage
       | build/gallery/other/01.png |
       | build/gallery/other/02.png |
 
-    And the file "build/gallery/index.html" has links to:
-      | cards |
-      | other |
+    # pages are linked
+    And the file "build/gallery/index.html" has links:
+      | other | other/ |
+      | cards | cards/ |
+
+    And the file "build/gallery/cards/index.html" has links:
+      | one | one/ |
+      | two | two/ |
+
+    And the file "build/gallery/cards/one/index.html" has no links
+    And the file "build/gallery/cards/two/index.html" has no links
+    And the file "build/gallery/other/index.html" has no links
+
+    # pages have images
+    And the file "build/gallery/cards/one/index.html" has images:
+      | 01.png |
+      | 02.png |
+    And the file "build/gallery/cards/two/index.html" has images:
+      | 01.png |
+    And the file "build/gallery/other/index.html" has images:
+      | 01.png |
+      | 02.png |
+    And the file "build/gallery/index.html" has no links
+    And the file "build/gallery/cards/index.html" has no links

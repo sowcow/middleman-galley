@@ -1,5 +1,6 @@
 require 'middleman/galley/version'
 require 'middleman/galley/gem_stuff'
+require 'middleman/galley/helper'
 require 'middleman' # kinda required...
 require 'fileutils'
 
@@ -13,7 +14,11 @@ module Middleman
       self.option :at, 'gallery',
         'gallery directory'
 
-      template = here('templates/page.erb')
+      # todo: templates/index.*?'
+      self.option :lang, 'erb',
+        'erb / slim / any?'
+
+      template = here('templates/index.erb')
 
       self.option :template, template,
         'template for missing pages'
@@ -22,9 +27,16 @@ module Middleman
         super
 
         missing.each { |dir|
-          dest = dir + 'index.erb'
+          base = Pathname(options.template).basename.to_s
+          dest = dir + base
           FileUtils.cp options.template, dest.to_s
         }
+      end
+
+      helpers do
+        def galley
+          ::Middleman::Galley::Helper.new self
+        end
       end
 
       private
