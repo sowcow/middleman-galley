@@ -1,0 +1,7 @@
+language: ruby
+rvm: [ ruby-head ]
+
+script: bundle exec rake
+
+notifications:
+  email: [ xpyro@ya.ru ]
