@@ -33,22 +33,21 @@ module Middleman
         res.path =~ /\/index\.html$/
       end
 
-      def image res
-        #return nil unless image? res #+optional compact ?
-        #raise [a.current_page.url, res.url].inspect
-        #raise [a.current_page.url, res.url,
-        #       relative(res.url),
-        #       a.image_tag(relative res.url) ].inspect
-        #a.image_tag relative(res.url)
-        '<img src="%s" />' % relative(res.url)
-      end
-
       def link res
         name = Pathname(res.url).basename.to_s
-        a.link_to name, relative(res.url)
+        a.link_to name, res
       end
 
-      # middleman dont want to do that...
+      def image res
+        #return nil unless image? res #+optional compact ?
+        url = if a.relative_links
+                relative res.url
+              else
+                res.url
+              end
+        a.tag :img, src: url
+      end
+
       def relative url
         url.sub a.current_page.url, ''
       end

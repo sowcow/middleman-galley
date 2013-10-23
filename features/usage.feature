@@ -37,8 +37,8 @@ Feature: Usage
       # by default uses `gallery` dir inside `source` dir
       activate :galley
 
-      # made with relative paths in mind anyway
-      # activate :directory_indexes
+      # todo: test non relative paths?
+      set :relative_links, true
       """
     # verbose option is optional
     And I successfully run `middleman build --verbose`
