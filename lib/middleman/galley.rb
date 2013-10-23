@@ -12,7 +12,7 @@ module Middleman
       self.option :at, 'gallery',
         'gallery directory'
 
-      self.option :template, here 'templates/page.html',
+      self.option :template, here('templates/page.html'),
         'template for missing pages'
 
       def initialize app, options_hash={}, &block
@@ -21,8 +21,22 @@ module Middleman
 
       def manipulate_resource_list resources
         res = Resources.new resources, options.template
-        res.prepare_page 'gallery/index.html'
+        missing.each { |dir|
+          res.prepare_page dir + '/index.html'
+        }
         res.all
+      end
+
+      def missing
+        src = Pathname('source')
+        dir = src + options.at
+        dirs = [dir] + Pathname.glob(dir + '**/**')
+                               .select(&:directory?)
+        missing = dirs.reject { |x|
+          x.children.any? { |x|
+            x.to_s =~ /\/index(\.[^\/]+)?$/ }
+        }.map { |x| x.relative_path_from src }
+         .map &:to_s
       end
     end
 
