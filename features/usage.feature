@@ -62,10 +62,10 @@ Feature: Usage
       | build/gallery/other/01.png |
       | build/gallery/other/02.png |
 
-    # pages are linked
+    # pages are linked (links sorted by name?) distinct feature?
     And the file "build/gallery/index.html" has links:
-      | other | other/ |
       | cards | cards/ |
+      | other | other/ |
 
     And the file "build/gallery/cards/index.html" has links:
       | one | one/ |

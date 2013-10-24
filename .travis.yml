@@ -3,3 +3,6 @@ rvm: [ 2.0.0 ]
 
 bundler_args: --without guard
 script: rake
+
+notifications:
+  email: false

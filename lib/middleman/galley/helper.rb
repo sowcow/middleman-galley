@@ -11,6 +11,7 @@ module Middleman
       # to extract as a partial?...
       def nested
         a.current_page.children.select { |x| nested? x }
+         .sort_by { |x| name x }
          .map { |x| link x }
          .join
       end
@@ -33,9 +34,12 @@ module Middleman
         res.path =~ /\/index\.html$/
       end
 
+      def name res
+        Pathname(res.url).basename.to_s
+      end
+
       def link res
-        name = Pathname(res.url).basename.to_s
-        a.link_to name, res
+        a.link_to name(res), res
       end
 
       def image res
