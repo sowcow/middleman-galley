@@ -1,6 +1,7 @@
 language: ruby
 rvm: [ ruby-head ]
 
+bundler_args: --without guard
 script: bundle exec rake
 
 notifications:
