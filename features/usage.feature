@@ -8,8 +8,8 @@ Feature: Usage
     Then the output should contain "ruby"
 
   Scenario: middleman is installed
-    # `ruby -S` prefix should be optional
-    When I successfully run `bundle exec ruby -S middleman --help`
+    # ...
+    When I successfully run `ruby -S bundle exec middleman --help`
     Then the output should contain "middleman"
 
   Scenario: build gallery
