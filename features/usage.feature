@@ -8,11 +8,12 @@ Feature: Usage
     Then the output should contain "ruby"
 
   Scenario: middleman is installed
-    When I successfully run `bundle exec middleman --help`
+    # `ruby -S` prefix should be optional
+    When I successfully run `ruby -S middleman --help`
     Then the output should contain "middleman"
 
   Scenario: build gallery
-    Given I successfully run `bundle exec middleman init my-site`
+    Given I successfully run `ruby -S middleman init my-site`
     And I cd to "my-site"
 
     # images for gallery
@@ -41,7 +42,7 @@ Feature: Usage
       set :relative_links, true
       """
     # verbose option is optional
-    And I successfully run `bundle exec middleman build --verbose`
+    And I successfully run `ruby -S middleman build --verbose`
 
     Then the output should not contain "Unknown Extension"
 
