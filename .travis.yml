@@ -2,7 +2,7 @@ language: ruby
 rvm: [ 2.0.0 ]
 
 bundler_args: --without guard --binstubs
-script: ruby -S cucumber --version
+script: ruby -S middleman version
 
 notifications:
   email: [ xpyro@ya.ru ]
