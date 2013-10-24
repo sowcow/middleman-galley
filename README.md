@@ -1,6 +1,8 @@
 # Middleman::Galley
 
+[![Gem Version](https://badge.fury.io/rb/middleman-galley.png)](http://badge.fury.io/rb/middleman-galley)
 [![Build Status](https://travis-ci.org/sowcow/middleman-galley.png?branch=master)](https://travis-ci.org/sowcow/middleman-galley)
+[![Dependency Status](https://gemnasium.com/sowcow/middleman-galley.png)](https://gemnasium.com/sowcow/middleman-galley)
 
 TODO: Write a gem description
 

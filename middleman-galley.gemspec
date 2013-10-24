@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'aruba'
   spec.add_development_dependency 'nokogiri'
+  # moved to Gemfile:
   #spec.add_development_dependency 'guard-cucumber', group: :guard
   spec.add_runtime_dependency 'middleman', '~> 3.1'
 end
