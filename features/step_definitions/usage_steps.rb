@@ -36,3 +36,13 @@ end
 And /^the file "(.*?)" has no images$/ do |file|
   assert_images file, []
 end
+
+And /^document "(.*?)" has (\d+) "(.*?)"$/ do \
+  |file, count, selector|
+  count = count.to_i
+  select(file, selector).count.should == count
+end
+
+def select file, selector
+  parse_html(file).css selector
+end

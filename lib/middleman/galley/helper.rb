@@ -1,4 +1,4 @@
-#require 'delegate' #< SimpleDelegator
+require 'middleman/galley/gallery_template'
 
 module Middleman
   module Galley
@@ -17,11 +17,12 @@ module Middleman
       end
 
       # to extract as a partial?...
-      def images
-        a.current_page.children.select { |x| image? x }
-         .sort_by { |x| x.url }
-         .map { |x| image x }
-         .join
+      def images gallery_template = :default
+        if gallery_template == :default
+          gallery_template = a.galley!
+                              .options.default_template
+        end
+        GalleryTemplate[gallery_template].build a
       end
 
       private
@@ -40,20 +41,6 @@ module Middleman
 
       def link res
         a.link_to name(res), res
-      end
-
-      def image res
-        #return nil unless image? res #+optional compact ?
-        url = if a.relative_links
-                relative res.url
-              else
-                res.url
-              end
-        a.tag :img, src: url
-      end
-
-      def relative url
-        url.sub a.current_page.url, ''
       end
     end
   end

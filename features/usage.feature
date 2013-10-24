@@ -87,3 +87,10 @@ Feature: Usage
       | 02.png |
     And the file "build/gallery/index.html" has no images
     And the file "build/gallery/cards/index.html" has no images
+
+    # with fotorama template by default:
+    And document "build/gallery/index.html" has 0 ".fotorama > img"
+    And document "build/gallery/cards/index.html" has 0 ".fotorama > img"
+    And document "build/gallery/cards/one/index.html" has 2 ".fotorama > img"
+    And document "build/gallery/cards/two/index.html" has 2 ".fotorama > img"
+    And document "build/gallery/other/index.html" has 2 ".fotorama > img"
