@@ -2,4 +2,4 @@ language: ruby
 rvm: [ 2.0.0 ]
 
 bundler_args: --without guard development --binstubs
-script: ls bin
+script: pwd
