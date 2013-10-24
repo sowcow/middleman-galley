@@ -1,8 +1,8 @@
 language: ruby
-rvm: [ ruby-head ]
+rvm: [ ruby ]
 
 bundler_args: --without guard --binstubs
-script: ruby -S middleman --help
+script: ruby -S cucumber --version
 
 notifications:
   email: [ xpyro@ya.ru ]
