@@ -1,8 +1,8 @@
 language: ruby
 rvm: [ ruby-head ]
 
-bundler_args: --without guard
-script: which ruby
+bundler_args: --without guard --binstubs
+script: which middleman
 
 notifications:
   email: [ xpyro@ya.ru ]
