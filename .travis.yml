@@ -1,5 +1,4 @@
 language: ruby
-rvm: [ ruby ]
 
 bundler_args: --without guard --binstubs
 script: ruby -S cucumber --version
