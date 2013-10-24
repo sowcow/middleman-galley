@@ -2,7 +2,7 @@ language: ruby
 rvm: [ ruby-head ]
 
 bundler_args: --without guard
-script: bundle exec rake
+script: middleman --help
 
 notifications:
   email: [ xpyro@ya.ru ]
