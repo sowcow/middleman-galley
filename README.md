@@ -3,6 +3,8 @@
 [![Gem Version](https://badge.fury.io/rb/middleman-galley.png)](http://badge.fury.io/rb/middleman-galley)
 [![Build Status](https://travis-ci.org/sowcow/middleman-galley.png?branch=master)](https://travis-ci.org/sowcow/middleman-galley)
 [![Dependency Status](https://gemnasium.com/sowcow/middleman-galley.png)](https://gemnasium.com/sowcow/middleman-galley)
+[![Code Climate](https://codeclimate.com/github/sowcow/middleman-galley.png)](https://codeclimate.com/github/sowcow/middleman-galley)
+[![Coverage Status](https://coveralls.io/repos/sowcow/middleman-galley/badge.png?branch=master)](https://coveralls.io/r/sowcow/middleman-galley?branch=master)
 
 TODO: Write a gem description
 
