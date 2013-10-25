@@ -4,3 +4,6 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'guard-cucumber', group: :guard
+
+# temp...
+gem 'simplecov', :require => false, :group => :test

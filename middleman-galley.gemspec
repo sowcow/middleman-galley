@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'aruba'
   spec.add_development_dependency 'nokogiri'
-  spec.add_development_dependency 'coveralls'
+  #spec.add_development_dependency 'coveralls'
   spec.add_development_dependency 'chunky_png'
   # moved to Gemfile:
   #spec.add_development_dependency 'guard-cucumber', group: :guard
