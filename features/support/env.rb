@@ -1,4 +1,4 @@
-require 'aruba/cucumber'
-
 require 'coveralls'
 Coveralls.wear!
+
+require 'aruba/cucumber'
