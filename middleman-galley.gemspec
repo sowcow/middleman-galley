@@ -24,7 +24,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'aruba'
   spec.add_development_dependency 'nokogiri'
   spec.add_development_dependency 'coveralls'
+  spec.add_development_dependency 'chunky_png'
   # moved to Gemfile:
   #spec.add_development_dependency 'guard-cucumber', group: :guard
   spec.add_runtime_dependency 'middleman', '~> 3.1'
+  spec.add_runtime_dependency 'fastimage'
 end

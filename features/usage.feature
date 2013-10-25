@@ -1,4 +1,4 @@
-Feature: Usage
+Feature: Basic usage
   In order to have fun
   As a human
   I want my images in the browser
@@ -16,7 +16,7 @@ Feature: Usage
     And I cd to "my-site"
 
     # images for the gallery
-    And I prepare following files:
+    And I put in my images:
       | source/gallery/cards/one/01.png |
       | source/gallery/cards/one/02.png |
       | source/gallery/cards/two/a1.png |

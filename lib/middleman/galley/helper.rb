@@ -1,7 +1,7 @@
-require 'middleman/galley/gallery_template'
+require 'middleman/galley/templates'
 
-module Middleman
-  module Galley
+module Middleman::Galley
+
     class Helper
       def initialize context
         @a = context
@@ -20,9 +20,9 @@ module Middleman
       def images gallery_template = :default
         if gallery_template == :default
           gallery_template = a.galley!
-                              .options.default_template
+                              .options.view
         end
-        GalleryTemplate[gallery_template].build a
+        Template[gallery_template].build a
       end
 
       private
@@ -43,5 +43,5 @@ module Middleman
         a.link_to name(res), res
       end
     end
-  end
+
 end

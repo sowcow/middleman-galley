@@ -19,7 +19,7 @@ module Middleman
     class Ext < Extension
       extend GemStuff
 
-      self.option :default_template, 'fotorama',
+      self.option :view, 'fotorama',
         'default gallery template'
 
       self.option :at, 'gallery',
@@ -40,6 +40,7 @@ module Middleman
 
       def initialize app, options_hash={}, &block
         app.send :include, Galley::Method
+        # kinda explicitness
 
         super
 
@@ -58,7 +59,8 @@ module Middleman
 
       helpers do
         def galley
-          ::Middleman::Galley::Helper.new self
+          Galley::Helper.new self
+          # kinda explicitness
         end
       end
 

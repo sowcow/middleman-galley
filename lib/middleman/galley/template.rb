@@ -1,6 +1,9 @@
-module Middleman
-  module Galley
-    class GalleryTemplate
+require 'forwardable'
+require 'fastimage'
+
+module Middleman::Galley
+
+    class Template
       @@known = {}
       def self.[] name
         name = name.to_sym
@@ -21,7 +24,9 @@ module Middleman
       end
 
       private
-      def a
+      delegate :content_tag, to: :a
+
+      def a # rid?
         @context
       end
 
@@ -40,7 +45,8 @@ module Middleman
               else
                 res.url
               end
-        a.tag :img, src: url
+        w, h = FastImage.size res.source_file
+        a.tag :img, src: url, width: w, height: h
       end
 
       IMG = /\.(png|jpg|jpeg|gif|svg|bmp)$/
@@ -52,27 +58,4 @@ module Middleman
         url.sub a.current_page.url, ''
       end
     end
-
-    # todo extract:
-
-    class Fotorama < GalleryTemplate
-      register :fotorama
-
-      def build
-        a.content_tag(:script, src:
-                      "http://code.jquery.com/jquery-1.10.2.min.js"){''}
-        a.content_tag(:script, src:
-                      "http://fotorama.s3.amazonaws.com/4.4.6/fotorama.js"){''}
-        style = a.content_tag(:script) do <<tag
-$("head").append("<link rel='stylesheet' href='http://fotorama.s3.amazonaws.com/4.4.6/fotorama.css' />");
-tag
-        end
-        images = a.content_tag(:div, class: 'fotorama') do
-          image_tags.join
-        end
-
-        nil
-      end
-    end
-  end
 end
